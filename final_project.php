@@ -48,7 +48,7 @@ class final_project extends adb {
 //    {
 //        $query = "Update ";
 //        return $this->query($query);
-//    }
+//    }  
     
     function login_delegate_data($username, $password) {
         $query = "Select * from delegate_table_mw where username= '$username'  and password = '$password'";

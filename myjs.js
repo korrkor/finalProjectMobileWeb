@@ -31,7 +31,7 @@ function verifyRegstration()
     var code = document.getElementById("code").value;  
     alert(code);
 
-    var u = "action.php?cmd=3&code=" + code;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=3&code=" + code;
     var r = syncAjax(u);
     if (r.result === 1)
     {
@@ -49,7 +49,7 @@ function saveSignUp()
 {
     var mid = $("#day").val();
 //   alert("this is the meeting is " + mid + " this is the did " + id ) 
-    var u = "action.php?cmd=7&mid=" + mid + "&did=" + id;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=7&mid=" + mid + "&did=" + id;
     var r = syncAjax(u);
 
     if (r.result === 1)
@@ -70,12 +70,12 @@ function saveRegistration()
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
     var code = getRandom();
-    var u = "action.php?cmd=1&name=" + name + "&email=" + email + "&phone_number=" + number + "&username=" + username + "&password=" + password + "&organisation=" + organisation + "&code=" + code;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=1&name=" + name + "&email=" + email + "&phone_number=" + number + "&username=" + username + "&password=" + password + "&organisation=" + organisation + "&code=" + code;
 
     var r = syncAjax(u);
-    var s = "action.php?cmd=2&number=" + phone_number + "&code=" + code;
+    var s = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=2&number=" + phone_number + "&code=" + code;  
 
-    if (r.result === 1)
+    if (r.result === 1)    
     {
 
         $.mobile.changePage('#popUp');
@@ -102,11 +102,11 @@ function getRandom() {
 var id;
 function login_delegate()
 {
-    alert("login page");
+    alert("login page");      
     var username = document.getElementById("usernameLogin").value;
-    var password = document.getElementById("passwordLogin").value;
+    var password = document.getElementById("passwordLogin").value;   
 
-    var u = "action.php?cmd=4&username=" + username + "&password=" + password;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=4&username=" + username + "&password=" + password;  
     prompt("u", u);
     var r = syncAjax(u);
 
@@ -128,7 +128,7 @@ function goToRegisterPage()
 }
 function check_save(name, email, number, organisation, username, password)
 {
-    var u = "action.php?cmd=1&name=" + name + "&email=" + email + "&phone_number=" + number + "&username=" + username + "&password=" + password + "&organisation=" + organisation;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=1&name=" + name + "&email=" + email + "&phone_number=" + number + "&username=" + username + "&password=" + password + "&organisation=" + organisation;
     return syncAjax(u);
 }
 
@@ -140,8 +140,8 @@ function getWords(str) {
 
 $(document).on("pagecreate", "#delegate_view", function () {
 
-    var u = "action.php?cmd=5";
-    var u2 = "action.php?cmd=6&id=" + id;
+    var u = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=5";
+    var u2 = "http://50.63.128.135/~csashesi/class2015/kutorkor-kotey-afutu/action.php?cmd=6&id=" + id;
     var r = syncAjax(u);
     var r2 = syncAjax(u2);
 
