@@ -23,17 +23,52 @@ class final_project extends adb {
      * query all applicant in the table and store the dataset in $this->result	
      * @return if successful true else false
      */
+    
+    function log_in_support($username,$password)  
+    {
+        $query = "Select * , count(*) as c from support_table where username= '$username'  and password = '$password'";
+//        print $query;
+        return $this->query($query);
+    }
+    
+    function check_in_delegate($did,$mid,$qr_code)   
+    {
+        $query = "Update delegate_meeting_table set qr_code = $qr_code where mid = $mid and did=$did";
+        return $this->query($query);
+    }
+    
+    function get_attendance_by_meeting_id($mtid)  
+    {
+        $query = "Select count(*) as c from delegate_meeting_table where mid = $mtid and qr_code > 0";  
+        return $this->query($query);
+    }
     function get_all_meetings() {
         $query = "Select * from support_table inner join meeting_table_mw on support_table.sid = meeting_table_mw.sid";
         return $this->query($query);
     }
 
+    function get_meetings()
+    {
+        $query = "Select * from meeting_table_mw";
+        return $this->query($query);
+    }
+    
     function add_delegate($name, $username, $password, $email, $phone_number, $organisation, $code) {
         $query = "Insert into delegate_table_mw (name,username,password,email,phone_number,organisation,sms_code) values ('$name', '$username', '$password' , '$email', $phone_number, '$organisation', $code)";
 //                        print $query;
         return $this->query($query);
     }
 
+    function return_last_id()
+    {
+        $query = "Select Max(did) from delegate_table_mw";   
+         return $this->query($query); 
+    }
+    function get_mid_from_sid($sid) 
+    {
+     $query = "Select * from meeting_table_mw where sid = $sid";
+        return $this->query($query);   
+    }
     function confirm_registration($code) {
         $query = "Update delegate_table_mw set registered = 'yes' where sms_code = $code";
         return $this->query($query);
@@ -75,6 +110,11 @@ class final_project extends adb {
         return $this->query($query);  
     }
 
+    function get_delegate_by_sms($sms)
+    {
+        $query = "Select * from delegate_table_mw where sms_code = $sms";  
+        return $this->query($query);  
+    }
     /**
      * updates the record identified by id 
      */
