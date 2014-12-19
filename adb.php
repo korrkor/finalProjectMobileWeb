@@ -10,8 +10,8 @@
 //define("DB_NAME", 'finalProjectMobileWeb');
 //define("DB_PORT", 3306);
 //define("DB_USER","root");
-//define("DB_PWORD","");   
-
+//define("DB_PWORD","");     
+  
 define("DB_HOST", 'localhost');   
 define("DB_NAME", 'csashesi_kutorkor-kotey-afutu');
 define("DB_PORT", 3306); 
@@ -25,7 +25,7 @@ define("LOG_LEVEL_DB_FAIL",0);
 function log_msg($level, $er_code, $msg, $mysql_msg){
 	return 0;
 }
-class adb {   
+class adb {     
 
 	/**error description*/
     var $str_error;

@@ -1,16 +1,4 @@
-<! DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-       <?php
+<?php
 
 $mobile_browser= '0';
 
@@ -45,11 +33,11 @@ $mobile_browser++;
 if (strpos(strtolower($_SERVER['HTTP_USER_AGENT']),'windows')>0) { 
 $mobile_browser=0; 
 } 
+//phone
 if($mobile_browser>0){ 
-    header("location: http://localhost/FinalProject-MobileWeb/index_2.html");   
+    header("location: index_phone.html");   
 } else { 
-header("location: http://localhost/FinalProject-MobileWeb/index_1.html");  
+//    desktop
+header("location: index_desktop.html");  
 } 
-        ?>  
-    </body>
-</html>
+     

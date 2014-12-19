@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+  <channel> 
+<title>My first RSS feed on ashesi</title> 
+<link>http://www.ashesi.edu.gh/</link> 
+<description>This describes ashesi and developments taking place</description> 
+<item> 
+<title>item 1. Mobile web courese 1</title> 
+<link>http://ashesi.edu.gh</link> 
+<description>Course notes -lec 1</description> 
+</item>  
+</chnannel> 
+</root>

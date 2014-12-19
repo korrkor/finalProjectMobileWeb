@@ -24,6 +24,33 @@ class final_project extends adb {
      * @return if successful true else false
      */
     
+    function add_support_staff($username, $phone_number, $password, $name)
+    {
+        $query = "Insert into support_table (name, username, password, phone_number) values ('$name', '$username', '$password', '$phone_number')";
+        return $this->query($query);
+        
+    }
+    
+    function get_all_delegates()
+    {
+         $query = "Select * from delegate_table_mw";    
+//        print $query;  
+        return $this->query($query);
+    }
+    
+    function add_meeting($sid,$name,$description,$date)
+    {
+        $query = "Insert into meeting_table_mw (name, description, date, sid) values ('$name', '$description', '$date', '$sid')";    
+//        print $query;
+        return $this->query($query);
+    }
+    
+    function return_last_support_staff()
+    {
+        $query = "Select Max(sid) from support_table";   
+         return $this->query($query);
+    }
+            
     function log_in_support($username,$password)  
     {
         $query = "Select * , count(*) as c from support_table where username= '$username'  and password = '$password'";

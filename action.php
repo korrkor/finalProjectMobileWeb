@@ -49,6 +49,14 @@ switch ($cmd) {
         get_meetings();
         break;
     
+     case 12:
+        add_support_staff();
+        break;
+    
+    case 13:
+        get_all_delegates();
+        break;
+    
 
     default:
         echo "{";
@@ -56,6 +64,56 @@ switch ($cmd) {
         echo jsons("message", "unknown command");
         echo "}";
 }
+
+function get_all_delegates()
+{
+     include_once './final_project.php';
+     $obj=new final_project();
+     $obj->get_all_delegates();
+     $row = $obj->fetch();
+     $delegates= "";
+     while($row)
+    { 
+//         echo "here";
+        $delegates .= $row['name'] . "\n"  ;  
+        $delegates .= $row['phone_number']   ;  
+         $delegates .="\n\n ";"";  
+//         $delegates .= $row['name'] . "\n";
+         $row = $obj->fetch();  
+    }
+    
+    print_r ($delegates); 
+     
+}
+
+function add_support_staff()
+{
+    include_once './final_project.php';
+    $username = get_data("username");
+    $password = get_data("password");
+    $name = get_data("name");
+    $meeting_name = get_data("meeting_name");
+    $description = get_data("description");
+    $date_time = get_data("date"). " " .get_data("time");
+    $number = get_datan("number");
+    $obj = new final_project();
+    if($obj->add_support_staff($username, $number, $password, $name))
+    {
+        $obj->return_last_support_staff();
+        $row = $obj->fetch();   
+        if($obj->add_meeting($row['Max(sid)'], $meeting_name, $description, $date_time))
+        {
+            echo "{";
+        echo jsonn("result", 67) . ",";
+        echo jsons("this is the code", "ghg");
+        echo "}";
+        return;
+        }
+           
+    }      
+    
+}
+
 
 function get_meetings()
 {
@@ -120,22 +178,23 @@ function log_in_support()
 function check_in_delegate()
 {
     include_once './final_project.php';
-    $qr_code = get_data("qr_code");
+    $qr_code = get_datan("qr_code");
     $sid = get_datan("sid");
+    $long_lat = get_datan("long_lat");
      $obj = new final_project();
      $obj->get_mid_from_sid($sid);
      $row = $obj ->fetch();
      
      $mid = $row['mtid'];
-     $obj ->get_delegate_by_sms($qr_code);
-     $row = $obj->fetch();
-     $did = $row['did'];
-//    $did = get_datan("did");
+//     $obj ->get_delegate_by_sms($qr_code);
+//     $row = $obj->fetch();
+//     $did = $row['did'];  
+    $did = get_datan("did");  
    
-    $obj->check_in_delegate($did, $mid, $qr_code);        
+    $obj->check_in_delegate($did, $mid, $qr_code,long_lat);        
 }
 
-function add_delegate_meeting()   
+function add_delegate_meeting()     
 {
     include_once './final_project.php';
     $mid = get_datan("mid");
@@ -314,7 +373,7 @@ function send_sms() {
             . "&ClientSecret=rktegnml" 
             . "&RegisteredDelivery=true";    
     // Fire the request and wait for the response
-    $response = file_get_contents($url);
+    $response = file_get_contents($url); 
     var_dump($response);    
 }  
 

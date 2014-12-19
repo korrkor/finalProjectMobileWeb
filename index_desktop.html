@@ -10,12 +10,12 @@
         
         <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
         <script src="jquery.mobile-1.4.4/jquery.qrcode.min.js" type="text/javascript"></script>
-        <script src="myjs.js" type="text/javascript"></script>
+        <script src="myjsdesktop.js" type="text/javascript"></script>
         <meta	name="viewport"	content="width=device-width,	initial-scale=1">
     </head>        
     <body>     
 
-        <div data-role="page" id="homepage" data-theme="a">
+        <div data-role="page" id="homepage" data-theme="b">  
             <!--            <a href="#myPanel" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-left" data-display="reveal"></a>          
             
                         <div data-role="panel"  data-display="reveal" style = "background-color:rgb(213, 213, 213)" id="myPanel">          
@@ -25,15 +25,15 @@
                                 <li><a href=""  onclick="secondPage()">Check in at the meeting</a></li>
                                 <li><a href="" onclick="redirect(<?php echo $lat ?>,<?php echo $long ?>)">View current location of bus</a></li>
                             </ul>
-                        </div>-->
+                        </div>-->  
             <div data-role="header">	
                 <h1></h1>	
             </div>	 
             <div role="main" class="ui-content" > 
                 <ul data-role="listview">  
-                    <li data-role = "fieldcontain">
+                    <li data-role = "fieldcontain">       
                         <button  onclick="goToRegisterPage()">Register to use this app</button>   
-                    </li>
+                    </li>  
                     <li data-role = "fieldcontain">
                         <button  onclick="goToLoginPage()">Log in </button>   
                     </li>
@@ -44,7 +44,7 @@
             </div>	
         </div>
 
-        <div data-role="page" id="register_page" data-theme="a" >
+        <div data-role="page" id="register_page" data-theme="b" >
             <!--            <a href="#myPanel2" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-left" data-display="reveal"></a>          
             
                         <div data-role="panel" data-display="reveal" style = "background-color:rgb(213, 213, 213)" id="myPanel2">          
@@ -114,7 +114,7 @@
             </div>	
         </div>
 
-        <div data-role="page" id="loginPage" data-theme="a">	
+        <div data-role="page" id="loginPage" data-theme="b">	
             <div data-role="header">	
                 <h1></h1>	
             </div>
@@ -166,7 +166,7 @@
         <div data-role="page" id="delegate_view" data-theme="a">
 
             <div data-role="header">  
-                hjhjh
+                This is the desktop version of the app
                 <!--                <div data-role="navbar">
                                     <ul>
                                         <li><a href="a.html" class="ui-btn-active">One</a></li>
@@ -189,15 +189,20 @@
 
                            
                         </div>
-                        <div id="qr">
-                            <a href="tel:+233573869143 "></a>
+                        
+                        <div id="qr">    
+                            <!--<a href="tel:+233573869143 "></a>-->
                         </div>
 
                     </div>
+<!--                    <div>
+                        <ul ></ul>
+                    </div>-->
                     
-
+                    
                     <div style="float: right">     
-                        <ul data-role="listview" data-theme="b" id="myList"  data-divider-theme="a">  
+                        <ul id = "ul" data-role="listview" data-theme="b"   data-divider-theme="a">  
+                            
                         </ul>
                     </div>
                 </div><!--/content-primary -->
@@ -210,7 +215,7 @@
                     <div class="ui-field-contain">
 
                         <label>Pick the meeting you want to reserve</label>
-                        <select name="day" id="day" data-native-menu="false">
+                        <select name="day" id="day" data-native-menu="false">  
 
                         </select>
                         <br>
